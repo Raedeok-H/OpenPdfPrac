@@ -97,3 +97,14 @@ GET http://localhost:9012/create-custom-pdf?
 
 
 
+
+### 보안 설정(암호화, 권한)
+GET http://localhost:9012/create-pdf-secure
+
+<> secure-sample-2.pdf
+
+
+
+
+
+
