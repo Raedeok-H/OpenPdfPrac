@@ -105,6 +105,9 @@ GET http://localhost:9012/create-pdf-secure
 
 
 
+### 압축(로그로 전, 후 용량확인)
+GET http://localhost:9012/optimize-pdf
 
+<> optimized_sample-2.pdf
 
 
