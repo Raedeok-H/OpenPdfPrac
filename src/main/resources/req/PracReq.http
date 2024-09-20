@@ -50,3 +50,10 @@ GET http://localhost:9012/create-custom-header-footer-pdf?
     footer={{$random.alphanumeric(8)}}
 
 <> header-footer-sample.pdf
+
+
+### 문자열로 워터마크 넣기
+GET http://localhost:9012/create-pdf-with-watermark?
+    watermarkText={{$random.alphanumeric(8)}}
+
+<> watermark-sample.pdf
