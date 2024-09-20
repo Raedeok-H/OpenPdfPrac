@@ -1,0 +1,25 @@
+### 한글 적용
+GET http://localhost:9012/create-pdf?
+    text={{$random.alphanumeric(8)}}
+
+<> sample.pdf
+
+
+### 텍스트 스타일 및 정렬
+GET http://localhost:9012/create-styled-pdf?
+    text={{$random.alphanumeric(8)}}
+
+<> styled_sample.pdf
+
+### 이미지, 도형
+GET http://localhost:9012/create-image-pdf?
+    text={{$random.alphanumeric(8)}}
+
+<> image_sample-1.pdf
+
+
+### 좌표 및 레이아웃으로 텍스트나 이미지 배치
+GET http://localhost:9012/create-image-layout-pdf?
+    text={{$random.alphanumeric(8)}}
+
+<> image_sample-5.pdf
