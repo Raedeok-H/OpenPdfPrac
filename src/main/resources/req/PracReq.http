@@ -57,3 +57,11 @@ GET http://localhost:9012/create-pdf-with-watermark?
     watermarkText={{$random.alphanumeric(8)}}
 
 <> watermark-sample.pdf
+
+
+### 동적 셀 생성 및 포맷팅
+GET http://localhost:9012/create-dynamic-table-pdf?
+    rows={{$random.integer(10)}}&
+    cols={{$random.integer(20)}}
+
+<> dynamic-table-sample-1.pdf
