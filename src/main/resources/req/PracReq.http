@@ -23,3 +23,10 @@ GET http://localhost:9012/create-image-layout-pdf?
     text={{$random.alphanumeric(8)}}
 
 <> image_sample-5.pdf
+
+
+
+### 테이블 추가하기
+GET http://localhost:9012/create-table-pdf
+
+<> image_sample-8.pdf
