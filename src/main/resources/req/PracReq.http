@@ -42,3 +42,11 @@ GET http://localhost:9012/create-image-table-pdf
 GET http://localhost:9012/structured-pdf
 
 <> structured_sample-1.pdf
+
+
+### 헤더와 푸터 적용
+GET http://localhost:9012/create-custom-header-footer-pdf?
+    title={{$random.alphanumeric(8)}}&
+    footer={{$random.alphanumeric(8)}}
+
+<> header-footer-sample.pdf
