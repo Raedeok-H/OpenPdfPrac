@@ -30,3 +30,9 @@ GET http://localhost:9012/create-image-layout-pdf?
 GET http://localhost:9012/create-table-pdf
 
 <> image_sample-8.pdf
+
+
+### 테이블과 이미지 조합
+GET http://localhost:9012/create-image-table-pdf
+
+<> image_sample-9.pdf
