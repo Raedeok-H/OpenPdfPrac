@@ -36,3 +36,9 @@ GET http://localhost:9012/create-table-pdf
 GET http://localhost:9012/create-image-table-pdf
 
 <> image_sample-9.pdf
+
+
+### 페이지 크기, 여백 설정
+GET http://localhost:9012/structured-pdf
+
+<> structured_sample-1.pdf
