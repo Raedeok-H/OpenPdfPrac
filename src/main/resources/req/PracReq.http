@@ -65,3 +65,35 @@ GET http://localhost:9012/create-dynamic-table-pdf?
     cols={{$random.integer(20)}}
 
 <> dynamic-table-sample-1.pdf
+
+
+
+
+
+
+
+### 커스텀 배치 기본
+GET http://localhost:9012/create-custom-pdf?
+    text={{$random.alphanumeric(8)}}&
+    templateType={{$random.alphanumeric(8)}}
+
+<> custom-1.pdf
+
+### 커스텀 배치 1
+GET http://localhost:9012/create-custom-pdf?
+    text={{$random.alphanumeric(8)}}&
+    templateType=template1
+
+<> custom-2.pdf
+
+### 커스텀 배치 2
+GET http://localhost:9012/create-custom-pdf?
+    text={{$random.alphanumeric(8)}}&
+    templateType=template2
+
+<> custom-3.pdf
+
+
+
+
+
