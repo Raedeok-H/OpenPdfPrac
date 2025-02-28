@@ -5,6 +5,7 @@ import com.lowagie.text.Image;
 import com.lowagie.text.PageSize;
 import com.lowagie.text.pdf.BaseFont;
 import com.lowagie.text.pdf.PdfContentByte;
+import com.lowagie.text.pdf.PdfGState;
 import com.lowagie.text.pdf.PdfWriter;
 import dto.OverlayDTO;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +20,11 @@ import java.io.IOException;
 public class PdfOverlayService {
 
     private static final String FONT_PATH = "src/main/resources/fonts/NanumGothicBold.ttf";
+
+    // 워터마크
+    private static final String PREVIEW_MARK_PATH = "src/main/resources/watermark/preview.png";
+    private static final String PREVIEW_MARK_PATH_2 = "src/main/resources/watermark/preview_2.png";
+    private static final String THUMB_MARK_PATH = "src/main/resources/watermark/thumb.png";
 
     public byte[] createPdf(OverlayDTO overlayDTO, MultipartFile file) {
         try (ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
@@ -71,6 +77,9 @@ public class PdfOverlayService {
 //            cb.rectangle(x, y, boxWidth, boxHeight);
 //            cb.stroke();
 
+            // 워터 마크 추가
+            addWatermarkImage(writer);
+
             document.close();
             writer.close();
 
@@ -117,4 +126,26 @@ public class PdfOverlayService {
         log.info("Calculated font size: {}", fontSize);
         return fontSize;
     }
+
+    // 워터마크 추가
+    private void addWatermarkImage(PdfWriter writer) throws IOException {
+        PdfContentByte over = writer.getDirectContent(); // 페이지 위(Over) 레이어
+        PdfGState gState = new PdfGState();
+        gState.setFillOpacity(0.6f); // 30% 투명도 (필요에 맞게 조정)
+
+        over.setGState(gState);
+        // 워터마크 이미지 로드
+        Image watermarkImg = Image.getInstance(PREVIEW_MARK_PATH);
+
+        float docW = PageSize.A4.getWidth();
+        float docH = PageSize.A4.getHeight();
+
+        // A4 사이즈에 맞춤 (비율 유지)
+        watermarkImg.scaleToFit(docW, docH);
+        // 페이지 전체에 덮도록 (0,0부터)
+        watermarkImg.setAbsolutePosition(0, 0);
+
+        over.addImage(watermarkImg);
+    }
+
 }
